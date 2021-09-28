@@ -31,18 +31,12 @@ $guess = ["even", "odd"];
 for ($round =1; $number_marbles_A > 0 and $number_marbles_B > 0; $round++) {
     ?><h3> Round <?php echo $round?> </h3> <?php
     if ($round %2 != 0) {
-    //If $round is odd, Player A holds marbles, Player B guesses
-
+    //If $round is odd, Player A hides marbles, Player B guesses
     $randomMarblesA = rand(1,$number_marbles_A);
     ?><p> Player A chose <?php echo $randomMarblesA;?> marbles.</p><?php
     shuffle($guess);
     ?><p> Player B chose <?php echo $guess[0];?>.</p><?php
-        if ($randomMarblesA % 2 == 0 and $guess[0] == "even") {
-            ?><p> Player B is correct. Player B wins.</p>
-            <?php
-            $number_marbles_A -= $randomMarblesA;
-            $number_marbles_B += $randomMarblesA;
-        } elseif ($randomMarblesA % 2 !== 0 and $guess[0] == "odd"){
+        if (($randomMarblesA % 2 == 0 and $guess[0] == "even") or ($randomMarblesA % 2 !== 0 and $guess[0] == "odd")) {
             ?><p> Player B is correct. Player B wins.</p>
             <?php
             $number_marbles_A -= $randomMarblesA;
@@ -54,21 +48,16 @@ for ($round =1; $number_marbles_A > 0 and $number_marbles_B > 0; $round++) {
             $number_marbles_B -= $randomMarblesA;
         }
     } else {
-    //If $round is even, Player B holds marbles, Player A guesses
+    //If $round is even, Player B hides marbles, Player A guesses
     $randomMarblesB = rand(1,$number_marbles_B);
     ?><p> Player B chose <?php echo $randomMarblesB;?> marbles.</p><?php
     shuffle($guess);
     ?><p> Player A chose <?php echo $guess[0];?>.</p><?php
-        if ($randomMarblesB % 2 == 0 and $guess[0] == "even") {
+        if (($randomMarblesB % 2 == 0 and $guess[0] == "even") or ($randomMarblesB % 2 !== 0 and $guess[0] == "odd")) {
             ?><p> Player A is correct. Player A wins.</p>
             <?php
             $number_marbles_B -= $randomMarblesB;
-            $number_marbles_A += $randomMarblesB;
-        } elseif ($randomMarblesB % 2 !== 0 and $guess[0] == "odd"){
-            ?><p> Player A is correct. Player A wins.</p>
-            <?php
-            $number_marbles_B -= $randomMarblesB;
-            $number_marbles_A += $randomMarblesB;      
+            $number_marbles_A += $randomMarblesB;    
         } else {
             ?><p> Player A is incorrect. Player B wins.</p>
             <?php
