@@ -8,7 +8,7 @@
 <h1>Game: Odd or Even - Marble Game</h1>
 <h3>Huy Quang Nguyen | Student ID: 71407772 </h3>
 <p>huynguyen@g.harvard.edu</p>
-
+<!--Mechanics-->
 <h2>Mechanics</h2>
     <ul>
         <li> Initially, Player A and Player B each have an equal number of marbles, from 5 to 10.</li>
