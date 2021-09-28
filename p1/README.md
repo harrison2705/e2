@@ -1,7 +1,7 @@
 _
 
 # Project 1
-+ By: Huy Quang Nguyen
++ By: Huy Quang Nguyen | Student ID: 71407772
 + URL: <http://e2p1.huynguyenau.me>
 
 ## Game planning
