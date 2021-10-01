@@ -1,81 +1,49 @@
-<!doctype html>
-<html lang="en">
-<head>
-</head>
-<body>
-<!--Introduction-->
-<section class="introduction">
-<h1>DGMD E2 | Project 1: Odd or Even - Marble Game</h1>
-<h3>Huy Quang Nguyen | Student ID: 71407772 </h3>
-<p>huynguyen@g.harvard.edu</p>
-<!--Mechanics-->
-<h2>Mechanics</h2>
-    <ul>
-        <li> Initially, Player A and Player B each have an equal number of marbles, from 5 to 10.</li>
-        <li> Player A has to hide some number of marbles in their fist.</li>
-        <li> Player B needs to guess whether Player A has an odd or even number of marbles.</li>
-        <li> Player B receives those marbles from Player A if the guess is correct and vice versa.</li>
-        <li> Successively, Player B will get their turn to play.</li>
-        <li> At the end, whoever has lost all their marbles first is the loser.</li>
-    </ul>
-</section>
-<!--Game-->
-<section class="game">
-<h2>Game</h2>
 <?php
+// + Create an empty varible $winner to determine who is the winner of the game.
 $winner = "";
+// + Randomly choose the number of marbles in the beginning of the game, from 5 to 10
 $number_marbles_A = $number_marbles_B = $initial_marbles= rand(5,10);
+// + Create an array containing "even" and "odd".
 $guess = ["even", "odd"];
-?><hr><p> Initially, each player has <?php echo $number_marbles_A;?> marbles.</p><hr><?php
-
+$currentA = [];
+$currentB = [];
+// + For each round, as long as the number of marbles of player A and player B are larger than 0, execute the loop
 for ($round =1; $number_marbles_A > 0 and $number_marbles_B > 0; $round++) {
-    ?><h3> Round <?php echo $round?> </h3> <?php
-    if ($round %2 != 0) {
     //If $round is odd, Player A hides marbles, Player B guesses
-    $randomMarblesA = rand(1,$number_marbles_A);
-    ?><p> Player A chose <?php echo $randomMarblesA;?> marbles.</p><?php
-    shuffle($guess);
-    ?><p> Player B chose <?php echo $guess[0];?>.</p><?php
+    if ($round %2 != 0) {
+        $randomMarblesA = rand(1,$number_marbles_A); //+ Randomly choose a number of marbles that Player A currently has
+        shuffle($guess); //+ Player B randomly choose "even" or "odd"
+        //+ Compare the guess with the number of marbles
         if (($randomMarblesA % 2 == 0 and $guess[0] == "even") or ($randomMarblesA % 2 !== 0 and $guess[0] == "odd")) {
-            ?><p> Player B is correct. Player B wins.</p>
-            <?php
+            
             $number_marbles_A -= $randomMarblesA;
             $number_marbles_B += $randomMarblesA;
+            
+            $playerBWin = "Player B Win";
         } else {
-            ?><p> Player B is incorrect. Player A wins.</p>
-            <?php
             $number_marbles_A += $randomMarblesA;
             $number_marbles_B -= $randomMarblesA;
+            $playerBWin = "Player B Lose";
         }
     } else {
-    //If $round is even, Player B hides marbles, Player A guesses
-    $randomMarblesB = rand(1,$number_marbles_B);
-    ?><p> Player B chose <?php echo $randomMarblesB;?> marbles.</p><?php
-    shuffle($guess);
-    ?><p> Player A chose <?php echo $guess[0];?>.</p><?php
+        //If $round is even, Player B hides marbles, Player A guesses
+        $randomMarblesB = rand(1,$number_marbles_B);
+        shuffle($guess);
         if (($randomMarblesB % 2 == 0 and $guess[0] == "even") or ($randomMarblesB % 2 !== 0 and $guess[0] == "odd")) {
-            ?><p> Player A is correct. Player A wins.</p><?php
+            $playerAWin = "Player A Win";
             $number_marbles_B -= $randomMarblesB;
             $number_marbles_A += $randomMarblesB;    
         } else {
-            ?><p> Player A is incorrect. Player B wins.</p><?php
+            $playerAWin = "Player A Lose";
             $number_marbles_B += $randomMarblesB;
             $number_marbles_A -= $randomMarblesB;       
         }
     }
+    array_push($currentA, $number_marbles_A);
+    array_push($currentB, $number_marbles_B);
     $count = $round;
-    if ($number_marbles_A >= ($initial_marbles * 2)){
-        ?><p> Current number of marbles: Player A: <?php echo ($initial_marbles *2);?>.</p>
-        <p> Current number of marbles: Player B: <?php echo 0;?>.</p><hr><?php 
-    } elseif ($number_marbles_B >= ($initial_marbles * 2)){
-        ?><p> Current number of marbles: Player A: <?php echo 0;?>.</p><?php
-        ?><p> Current number of marbles: Player B: <?php echo ($initial_marbles * 2);?>.</p><hr><?php 
-    } else {
-        ?><p> Current number of marbles: Player A: <?php echo $number_marbles_A;?>.</p>
-        <p> Current number of marbles: Player B: <?php echo $number_marbles_B;?>.</p><hr><?php
-    }
-    
 }
+// + Compare the number of marbles of player A and player B. In the view, report the results - player A's move, player B's move, and the winner
 #...Final results
 if ( $number_marbles_A > $number_marbles_B) {
     $winner = "Player A";
@@ -84,13 +52,5 @@ if ( $number_marbles_A > $number_marbles_B) {
 } else {
     $winner = "Tide";
 }
+require "index-view.php";
 ?>
-</section>
-<!--Result section-->
-<section class="result">
-    <h2>Results</h2>
-    <p>Rounds played: <?php echo $count;?></p>
-    <p>Winner: <?php echo $winner;?> </p>
-</section>  
-</body>
-</html>
