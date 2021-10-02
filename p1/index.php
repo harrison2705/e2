@@ -23,15 +23,13 @@ for ($round =1; $number_marbles_A > 0 and $number_marbles_B > 0; $round++) {
         array_push($randomA, $randomMarblesA);
         shuffle($guess);
         array_push($guessValue,$guess[0]);
-            if (($randomMarblesA % 2 == 0 and $guess[0] == "even") or ($randomMarblesA % 2 !== 0 and $guess[0] == "odd")) {
+            if (($randomMarblesA % 2 == 0 and $guessValue[$round-1] == "even") or ($randomMarblesA % 2 !== 0 and $guessValue[$round-1] == "odd")) {
             //+ Compare the guess with the number of marbles
                 $number_marbles_A -= $randomMarblesA;
                 $number_marbles_B += $randomMarblesA;
-                echo "Player B is correct. Player B wins. \n";
             } else {
                 $number_marbles_A += $randomMarblesA;
                 $number_marbles_B -= $randomMarblesA;
-                 echo "Player B is incorrect. Player A wins. \n";
             }
             array_push($currentA, $number_marbles_A);
             array_push($currentB, $number_marbles_B);
@@ -40,7 +38,7 @@ for ($round =1; $number_marbles_A > 0 and $number_marbles_B > 0; $round++) {
         array_push($randomB, $randomMarblesB);
         shuffle($guess); //+ Another player randomly choose "even" or "odd"
         array_push($guessValue,$guess[0]);
-        if (($randomMarblesB% 2 == 0 and $guess[0] == "even") or ($randomMarblesB % 2 !== 0 and $guess[0] == "odd")) {
+        if (($randomMarblesB% 2 == 0 and $guessValue[$round-2] == "even") or ($randomMarblesB % 2 !== 0 and $guessValue[$round-2] == "odd")) {
             $number_marbles_B -= $randomMarblesB;
             $number_marbles_A += $randomMarblesB;  
         } else {
