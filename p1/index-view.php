@@ -19,49 +19,51 @@
         <li> At the end, whoever has lost all their marbles first is the loser.</li>
     </ul>
 </section>
+<!--Result section-->
+<section class="result">
+    <h2>Results</h2>
+    <p>Rounds played: <?php echo ($round-1);?></p>
+    <p>Winner: <?php echo $winner;?> </p>
+</section>  
 <!--Game-->
 <section class="game">
 <h2>Game</h2><hr>
 <p> Initially, each player has <?php echo $initial_marbles;?> marbles.</p><hr>
 <?php
-    for($roundView = 1; $roundView < $round; $roundView++) {
-        ?><h3> Round <?php echo $roundView?> </h3><?php   
-    if($roundView %2 != 0) {
-        ?><p> Player A chose <?php echo $randomMarblesA;?> marbles.</p><?php
-        ?><p> Player B chose <?php echo $guess[0];?>.</p> <?php
-            if($playerBWin == "Player B Win") {
-                ?><p> Player B is correct. Player B wins.</p> <?php
-            } elseif ($playerWin = "Player B Lose"){
-                ?><p> Player B is incorrect. Player A wins.</p><?php
-            }
-    } else {
-            ?><p> Player B chose <?php echo $randomMarblesB;?> marbles.</p><?php 
-            ?><p> Player A chose <?php echo $guess[0];?>.</p><?php
-            if($playerAWin == "Player A Win") {
-                ?><p> Player A is correct. Player A wins.</p> <?php
-            } elseif ( $playerAWin = "Player A Lose") {
-                ?><p> Player A is incorrect. Player B wins.</p><?php 
-            }
-    }   
-        if ($currentA[($roundView-1)] >= ($initial_marbles * 2)) {
-            ?><p> Current number of marbles: Player A: <?php echo ($initial_marbles *2);?>.</p>
-            <p> Current number of marbles: Player B: <?php echo 0;?>.</p><hr><?php 
-        } elseif ($currentB[($roundView-1)] >= ($initial_marbles * 2)) {
-            ?><p> Current number of marbles: Player A: <?php echo 0;?>.</p><?php
-            ?><p> Current number of marbles: Player B: <?php echo ($initial_marbles * 2);?>.</p><hr><?php
+    for ($roundView =1; $roundView < $round; $roundView++) {
+    ?><h2>Round <?php echo $roundView ?></h2> <?php
+    if ($roundView %2 != 0) {   
+        ?><p>Player A chose <?php  echo $randomA[$roundView-$i]; ?> marbles.</p> <?php
+        ?><p>Player B chose <?php  echo $guessValue[$roundView-1]; ?> marbles.</p> <?php
+        if (($randomA[$roundView-$i] % 2 == 0 and $guessValue[$roundView-1] == "even") or ($randomA[$roundView-$i] % 2 !== 0 and $guessValue[$roundView-1] == "odd")) {
+            ?><p>Player B is correct. Player B wins.</p> <?php
         } else {
-            ?><p> Current number of marbles: Player A: <?php echo $currentA[$roundView -1];?>.</p>
-            <p> Current number of marbles: Player B: <?php echo $currentB[$roundView - 1];?>.</p><hr><?php
+            ?><p>Player B is incorrect. Player A wins.</p> <?php
         }
+        $i = $i + 1;
+    } elseif ($roundView %2 == 0) {
+        ?><p>Player B chose <?php  echo $randomB[$roundView-$j]; ?> marbles.</p> <?php
+        ?><p>Player A chose <?php  echo $guessValue[$roundView-2]; ?> marbles.</p> <?php
+        if (($randomB[$roundView-$j] % 2 == 0 and $guessValue[$roundView-2] == "even") or ($randomB[$roundView-$j] % 2 !== 0 and $guessValue[$roundView-2] == "odd")) {
+            ?><p>Player A is correct. Player A wins.</p> <?php
+        } else {
+            ?><p>Player A is incorrect. Player B wins.</p> <?php
+        }
+        $j = $j + 1;
     }
+    if ($currentA[$roundView-1] > ($initial_marbles * 2)) {
+        ?><p>Current marbles A:<?php  echo ($initial_marbles * 2); ?> </p> <?php
+        ?><p>Current marbles B:<?php  echo "0"; ?> </p> <?php
+    } elseif ($currentB[$roundView-1] > ($initial_marbles * 2)) {
+        ?><p>Current marbles A:<?php  echo "0"; ?> </p> <?php
+        ?><p>Current marbles B:<?php  echo ($initial_marbles * 2); ?> </p> <?php
+    } else {
+        ?><p>Current marbles A:<?php  echo $currentA[$roundView-1]; ?> </p> <?php
+    ?><p>Current marbles B:<?php  echo $currentB[$roundView-1]; ?> </p> <?php
+    }
+}
 ?>
 </section>
-<!--Result section-->
-<section class="result">
-    <h2>Results</h2>
-    <p>Rounds played: <?php echo $count;?></p>
-    <p>Winner: <?php echo $winner;?> </p>
-  
-</section>  
+
 </body>
 </html>
