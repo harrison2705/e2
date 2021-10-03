@@ -60,4 +60,8 @@ if ( $number_marbles_A > $number_marbles_B) {
     $winner = "Tide";
 }
 require "index-view.php";
+<<<<<<< HEAD
 ?>
+=======
+?>
+>>>>>>> 98cd98ccba8157c3b577111a4faab29ef2c3f9a3

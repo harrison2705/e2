@@ -1,7 +1,7 @@
 _
 
 # Project 1
-+ By: Huy Quang Nguyen
++ By: Huy Quang Nguyen | Student ID: 71407772
 + URL: <http://e2p1.huynguyenau.me>
 
 ## Game planning
@@ -11,7 +11,11 @@ _
 + Player B receives those marbles from Player A if the guess is correct and vice versa.
 + Successively, Player B will get their turn to play.
 + At the end, whoever has lost all their marbles first is the loser.
+<<<<<<< HEAD
 + In the view, report the results - player A's move, player B's move, the winner
+=======
+
+>>>>>>> 98cd98ccba8157c3b577111a4faab29ef2c3f9a3
 
 ## Outside resources
 
