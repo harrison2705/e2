@@ -1,12 +1,11 @@
 <?php
 $winner = ""; // Create an empty varible $winner to determine who is the winner of the game
-$number_marbles_A = $number_marbles_B = $initial_marbles= rand(5,10); // Randomly choose the number of marbles in the beginning of the game, from 5 to 10
 $guess = ["even", "odd"]; // Create an array containing value of "even" and "odd"
 $guessValue = []; // an array to contain the guess value of Player A and player B
-$currentA = []; $currentB = []; //Create arrays containing the current number of marbles of Player A and Player B in each round
-$randomA = []; $randomB = []; // Create arrays containing numbers of marbles of Player A and Player B hiding in each round
+$currentA = []; $currentB = []; //Create arrays containing the current number of marbles of each player in each round
+$randomA = []; $randomB = []; // Create arrays containing the number of marbles that each player decided to hide in each round.
 $randomMarblesA = 0;$randomMarblesB = 0; // Create two variables containing the number of marble in Player A and Player B in each round
-
+$number_marbles_A = $number_marbles_B = $initial_marbles= rand(5,10); // Randomly choose the number of marbles in the beginning of the game, from 5 to 10
 // + For each round, as long as the number of marbles of player A and player B are larger than 0, execute the loop
 for ($round = 1; $number_marbles_A > 0 and $number_marbles_B > 0; $round++) {
     //If $round is odd, Player A hides marbles, Player B guesses
