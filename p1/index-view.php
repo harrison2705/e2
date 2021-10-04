@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <title> Project 1 </title>
+    <meta charset='utf-8'>
 </head>
 <body>
 <!--Introduction-->
@@ -30,6 +32,7 @@
 <h2>Rounds</h2><hr>
 <p> Initially, each player has <?php echo $initial_marbles;?> marbles.</p><hr>
 <?php
+    //Display the result of each round.
     $i = 1; $j = 2;
     for ($roundView =1; $roundView < $round; $roundView++) {
     ?><h2>Round <?php echo $roundView ?></h2><?php
