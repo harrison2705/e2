@@ -23,7 +23,8 @@ _
 + In the view, report the results - Player A's move, Player B's move, and the winner.
 
 ## Outside resources
-No outside resources were used.
+No outside resources was used.
+
 
 ## Notes for instructor
 The project is inspired by the game of the same name in the current popular Netflix series - SQUID GAME.

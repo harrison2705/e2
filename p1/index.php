@@ -68,6 +68,7 @@ for ($round = 1; $number_marbles_A > 0 and $number_marbles_B > 0; $round++) {
             $winnerPlayer = "Player B";  
         } 
         array_push($winnerRound, $winnerPlayer);
+
         // The number of marbles cannot be negative. The minimum number of marbles in each player's hand is 0.
         if ($number_marbles_A > ($initial_marbles * 2)) {
             $number_marbles_A = $initial_marbles * 2;
@@ -82,7 +83,7 @@ for ($round = 1; $number_marbles_A > 0 and $number_marbles_B > 0; $round++) {
     $count = $round;
 }
 
-// Decide the number
+// Decide the winner
 if ( $number_marbles_A > $number_marbles_B) {
     $winner = "Player A";
 } elseif ($number_marbles_A < $number_marbles_B) {
@@ -90,7 +91,6 @@ if ( $number_marbles_A > $number_marbles_B) {
 } else {
     $winner = "Tide";
 }
-// Accumulate the results for the view
 
 require "index-view.php";
 ?>
