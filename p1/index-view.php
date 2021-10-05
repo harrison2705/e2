@@ -19,6 +19,7 @@
         <li> Player B receives those marbles from Player A if the guess is correct and vice versa.</li>
         <li> Successively, Player B will get their turn to play.</li>
         <li> At the end, whoever has lost all their marbles first is the loser.</li>
+        <li> The number of marbles of each player cannot be negative. The minimum number of marbles in each player's hand is 0.</li>
     </ul>
 </section>
 <!--Result section-->
@@ -34,29 +35,29 @@
 <?php
     //Display the result of each round.
     $i = 1; $j = 2;
-    for ($roundView =1; $roundView < $round; $roundView++) {
-    ?><h2>Round <?php echo $roundView ?></h2><?php
-    if ($roundView %2 != 0) {  
-        if ($randomA[$roundView-$i] > 1) {
-            ?><p>Player A chose <?php  echo $randomA[$roundView-$i]; ?> marbles to hide.</p><?php
+    for ($roundDisplay = 1; $roundDisplay < $round; $roundDisplay++) {
+    ?><h2>Round <?php echo $roundDisplay ?></h2><?php
+    if ($roundDisplay %2 != 0) {  
+        if ($randomA[$roundDisplay - $i] > 1) {
+            ?><p>Player A chose <?php  echo $randomA[$roundDisplay-$i]; ?> marbles to hide.</p><?php
         } else {
-            ?><p>Player A chose <?php  echo $randomA[$roundView-$i]; ?> marble to hide.</p><?php
+            ?><p>Player A chose <?php  echo $randomA[$roundDisplay-$i]; ?> marble to hide.</p><?php
         }
-        ?><p>Player B chose <?php  echo $guessValue[$roundView-1]; ?>.</p><?php
-        if (($randomA[$roundView-$i] % 2 == 0 and $guessValue[$roundView-1] == "even") or ($randomA[$roundView-$i] % 2 !== 0 and $guessValue[$roundView-1] == "odd")) {
+        ?><p>Player B chose <?php  echo $guessValue[$roundDisplay-1]; ?>.</p><?php
+        if (($randomA[$roundDisplay-$i] % 2 == 0 and $guessValue[$roundDisplay-1] == "even") or ($randomA[$roundDisplay-$i] % 2 !== 0 and $guessValue[$roundDisplay-1] == "odd")) {
             ?><p>Player B is correct. Player B wins.</p><?php
         } else {
             ?><p>Player B is incorrect. Player A wins.</p><?php
         }
         $i = $i + 1; 
-    } elseif ($roundView %2 == 0) {
-        if ($randomB[$roundView-$j] > 1) {
-            ?><p>Player B chose <?php  echo $randomB[$roundView-$j]; ?> marbles to hide.</p><?php
+    } elseif ($roundDisplay %2 == 0) {
+        if ($randomB[$roundDisplay-$j] > 1) {
+            ?><p>Player B chose <?php  echo $randomB[$roundDisplay-$j]; ?> marbles to hide.</p><?php
         }else {
-            ?><p>Player B chose <?php  echo $randomB[$roundView-$j]; ?> marble to hide.</p><?php
+            ?><p>Player B chose <?php  echo $randomB[$roundDisplay-$j]; ?> marble to hide.</p><?php
         }
-        ?><p>Player A chose <?php  echo $guessValue[$roundView-2]; ?>.</p><?php
-        if (($randomB[$roundView-$j] % 2 == 0 and $guessValue[$roundView-2] == "even") or ($randomB[$roundView-$j] % 2 !== 0 and $guessValue[$roundView-2] == "odd")) {
+        ?><p>Player A chose <?php  echo $guessValue[$roundDisplay-2]; ?>.</p><?php
+        if (($randomB[$roundDisplay-$j] % 2 == 0 and $guessValue[$roundDisplay-2] == "even") or ($randomB[$roundDisplay-$j] % 2 !== 0 and $guessValue[$roundDisplay-2] == "odd")) {
             ?><p>Player A is correct. Player A wins.</p><?php
         } else {
             ?><p>Player A is incorrect. Player B wins.</p><?php
@@ -64,15 +65,15 @@
         $j = $j + 1;
     }
     // The number of marbles cannot be negative. The minimum number of marbles in each player's hand is 0.
-    if ($currentA[$roundView-1] > ($initial_marbles * 2)) {
+    if ($currentA[$roundDisplay - 1] > ($initial_marbles * 2)) {
         ?><p>The current number of marbles - Player A: <?php  echo ($initial_marbles * 2);?></p><?php
         ?><p>The current number of marbles - Player B: <?php  echo "0";?></p><hr><?php
-    } elseif ($currentB[$roundView-1] > ($initial_marbles * 2)) {
+    } elseif ($currentB[$roundDisplay - 1] > ($initial_marbles * 2)) {
         ?><p>The current number of marbles - Player A: <?php  echo "0";?></p><?php
         ?><p>The current number of marbles - Player B: <?php  echo ($initial_marbles * 2);?></p><hr><?php
     } else {
-        ?><p>The current number of marbles - Player A: <?php  echo $currentA[$roundView-1];?></p><?php
-        ?><p>The current number of marbles - Player B: <?php  echo $currentB[$roundView-1];?> </p><hr><?php
+        ?><p>The current number of marbles - Player A: <?php  echo $currentA[$roundDisplay - 1];?></p><?php
+        ?><p>The current number of marbles - Player B: <?php  echo $currentB[$roundDisplay - 1];?> </p><hr><?php
     }
 }
 ?>
