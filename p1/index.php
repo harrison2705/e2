@@ -1,5 +1,5 @@
 <?php
-
+// Array containing two values "Even" and "Odd"
 $guess = ["even", "odd"]; 
 
 // Arrays containing the guess of Player A and Player B in each round.
@@ -58,7 +58,7 @@ for ($round = 1; $numberMarblesA > 0 and $numberMarblesB > 0; $round++) {
         array_push($guessValue,$guess[0]); 
 
         //Compare the guess with the number of marbles. 
-        if (($randomMarblesB% 2 == 0 and $guessValue[$round-2] == "even") or ($randomMarblesB % 2 !== 0 and $guessValue[$round-2] == "odd")) {
+        if (($randomMarblesB % 2 == 0 and $guessValue[$round-2] == "even") or ($randomMarblesB % 2 !== 0 and $guessValue[$round-2] == "odd")) {
             $numberMarblesB -= $randomMarblesB;
             $numberMarblesA += $randomMarblesB; 
             $winnerPlayer = "Player A"; 
@@ -71,7 +71,7 @@ for ($round = 1; $numberMarblesA > 0 and $numberMarblesB > 0; $round++) {
 
         // The number of marbles cannot be negative. The minimum number of marbles in each player's hand is 0.
         if ($numberMarblesA > ($initialMarbles * 2)) {
-            $numberMarblesA= $initialMarbles * 2;
+            $numberMarblesA = $initialMarbles * 2;
             $numberMarblesB = 0;
         } elseif ($numberMarblesB > ($initialMarbles * 2)) {
             $numberMarblesB = $initialMarbles * 2;
@@ -82,7 +82,6 @@ for ($round = 1; $numberMarblesA > 0 and $numberMarblesB > 0; $round++) {
     array_push($currentB, $numberMarblesB);
     $count = $round;
 }
-
 // Decide the winner
 if ( $numberMarblesA > $numberMarblesB) {
     $winner = "Player A";
