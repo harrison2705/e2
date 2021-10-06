@@ -15,7 +15,7 @@
         <h2> Mechanics</h2>
             <ul>
                 <li> Initially, Player A and Player B each have an equal number of marbles, randomly from 5 to 10.</li>
-                <li> Player A has to hide some number of marbles in their fist. The number of marbles must be larger than 1</li>
+                <li> Player A has to hide some number of marbles in their fist. The number of marbles must be larger than 1.</li>
                 <li> Player B needs to guess whether Player A has an odd or even number of marbles.</li>
                 <li> Player B receives those marbles from Player A if the guess is correct and vice versa.</li>
                 <li> Successively, Player B will get their turn to play.</li>
@@ -80,8 +80,8 @@
                     }
                     $roundEven = $roundEven + 1;
                 }
-                    ?><p> The current number of marbles - Player A: <?php  echo $currentA[$roundDisplay - 1];?></p><?php
-                    ?><p> The current number of marbles - Player B: <?php  echo $currentB[$roundDisplay - 1];?> </p><hr><?php
+                    ?><p> The current number of marbles - Player A: <?php  echo $currentA[$roundDisplay - 1];?>.</p><?php
+                    ?><p> The current number of marbles - Player B: <?php  echo $currentB[$roundDisplay - 1];?>.</p><hr><?php
             }
             ?>
     </section>
