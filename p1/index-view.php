@@ -8,9 +8,9 @@
 <body>
     <!--Introduction-->
     <section class="introduction">
-        <h1>DGMD E2 | Project 1: Odd or Even - Marble Game</h1>
-        <h3>Huy Quang Nguyen | Student ID: 71407772 </h3>
-        <p>huynguyen@g.harvard.edu</p>
+        <h1> DGMD E2 | Project 1: Odd or Even - Marble Game</h1>
+        <h3> Huy Quang Nguyen | Student ID: 71407772 </h3>
+        <p> huynguyen@g.harvard.edu</p>
         <!--Mechanics-->
         <h2>Mechanics</h2>
             <ul>
@@ -25,29 +25,29 @@
     </section>
     <!--Result section-->
     <section class="result">
-        <h2>Results</h2>
-        <p>Rounds played: <?php echo ($round-1);?></p>
-        <p>Winner: <?php echo $winner;?> </p>
+        <h2> Results </h2>
+        <p> Rounds played: <?php echo ($round-1);?></p>
+        <p> Winner: <?php echo $winner;?> </p>
     </section>  
     <!--Game-->
     <section class="game">
-        <h2>Rounds</h2><hr>
+        <h2> Rounds </h2><hr>
         <p> Initially, each player has <?php echo $initial_marbles;?> marbles.</p><hr>
             <?php
             $roundOdd = 1; $roundEven = 2;
             for ($roundDisplay = 1; $roundDisplay < $round; $roundDisplay++) {
 
                 //Display the round number
-                ?><h2>Round <?php echo $roundDisplay ?></h2><?php
+                ?><h2> Round <?php echo $roundDisplay ?></h2><?php
 
                 // Odd rounds
-                if ($roundDisplay %2 != 0) { 
+                if ($roundDisplay % 2 != 0) { 
 
                     // Player A's hidden marbles 
                     if ($randomA[$roundDisplay - $roundOdd] > 1) {
-                        ?><p>Player A chose <?php  echo $randomA[$roundDisplay - $roundOdd]; ?> marbles to hide.</p><?php
+                        ?><p> Player A chose <?php  echo $randomA[$roundDisplay - $roundOdd]; ?> marbles to hide.</p><?php
                     } else {
-                        ?><p>Player A chose <?php  echo $randomA[$roundDisplay - $roundOdd]; ?> marble to hide.</p><?php
+                        ?><p> Player A chose <?php  echo $randomA[$roundDisplay - $roundOdd]; ?> marble to hide.</p><?php
                     }
                     // Player B's guess
                     ?><p>Player B chose <?php  echo $guessValue[$roundDisplay - 1]; ?>.</p><?php
@@ -61,7 +61,7 @@
                     $roundOdd = $roundOdd + 1; 
                     
                 // Even rounds
-                } elseif ($roundDisplay %2 == 0) {
+                } elseif ($roundDisplay % 2 == 0) {
 
                     // Player B's hidden marbles
                     if ($randomB[$roundDisplay-$roundEven ] > 1) {
