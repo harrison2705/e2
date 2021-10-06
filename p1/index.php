@@ -15,7 +15,7 @@ $randomA = []; $randomB = [];
 $winnerRound = [];
 
 // Variables containing the number of marble in Player A and Player B in each round
-$randomMarblesA = 0;$randomMarblesB = 0; 
+$randomMarblesA = 0; $randomMarblesB = 0; 
 
 // Randomly choose the number of marbles at the beginning of the game, from 5 to 10.
 $number_marbles_A = $number_marbles_B = $initial_marbles= rand(5,10); 
