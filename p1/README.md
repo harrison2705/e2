@@ -25,6 +25,5 @@ _
 ## Outside resources
 No outside resources was used.
 
-
 ## Notes for instructor
 The project is inspired by the game of the same name in the current popular Netflix series - SQUID GAME.
