@@ -70,13 +70,13 @@ for ($round = 1; $numberMarblesA > 0 and $numberMarblesB > 0; $round++) {
         array_push($winnerRound, $winnerPlayer);  
     }
     // The number of marbles cannot be negative. The minimum number of marbles in each player's hand is 0.
-        if (($numberMarblesA > ($initialMarbles * 2)) or ($numberMarblesB < 0)) {
-            $numberMarblesA = $initialMarbles * 2;
-            $numberMarblesB = 0;
-        } elseif (($numberMarblesB > ($initialMarbles * 2)) or ($numberMarblesA <0)) {
-            $numberMarblesB = $initialMarbles * 2;
-            $numberMarblesA = 0;
-        }
+    if (($numberMarblesA > ($initialMarbles * 2)) or ($numberMarblesB < 0)) {
+        $numberMarblesA = $initialMarbles * 2;
+        $numberMarblesB = 0;
+    } elseif (($numberMarblesB > ($initialMarbles * 2)) or ($numberMarblesA <0)) {
+        $numberMarblesB = $initialMarbles * 2;
+        $numberMarblesA = 0;
+    }
     array_push($currentA, $numberMarblesA);
     array_push($currentB, $numberMarblesB);
     $count = $round;
