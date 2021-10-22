@@ -1,3 +1,8 @@
-<h1>Practice app</h1>
+<?php
+require 'Catalog.php';
 
-<img src='Huy Id.png'>
+$catalog = new Catalog('products.json'); //create a new and unique object from the class Catalog.
+$catalog->getById(9);
+
+//var_dump($catalog->getAll());
+var_dump($catalog->searchByName("Greens"));

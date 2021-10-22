@@ -23,6 +23,7 @@
                 <li> The number of marbles of each player cannot be negative. The minimum number of marbles in each player's hand is 0.</li>
             </ul>
     </section>
+
     <!--Result section-->
     <section class="result">
         <h2> Results </h2>
