@@ -42,12 +42,12 @@
                     <p> I guess you already know the rule. So, what is your option?</p>
                     <form action="process_option.php" method="POST">
                         <div class="optionArea">
-                             <input class= "option" type="radio" name="playerChoice" value="rock" id="rock" <?php echo ($playerChoice =="rock") ? "checked" : "" ?>><label class="<?php echo($playerChoice=="rock") ? "img_checked" : ""?> image rockimg" for ="rock" >Rock</label>
+                            <input class= "option" type="radio" name="playerChoice" value="rock" id="rock" <?php echo ($playerChoice=="rock") ? "checked" : "" ?> ><label class="<?php echo($playerChoice=="rock") ? "img_checked" : ""?> image rockimg" for ="rock" >Rock</label>
 
-                            <input class= "option" type="radio" name="playerChoice" value="paper" id="papper" <?php echo ($playerChoice =="paper") ? "checked" : "" ?>><label class="<?php echo($playerChoice=="paper") ? "img_checked" : ""?>image paperimg" for ="papper">Paper</label>
+                            <input class= "option" type="radio" name="playerChoice" value="paper" id="papper" <?php echo ($playerChoice=="paper") ? "checked" : "" ?> ><label class="<?php echo($playerChoice=="paper") ? "img_checked" : ""?> image paperimg" for ="papper">Paper</label>
 
-                            <input class= "option" type="radio" name="playerChoice" value="scissors" id="scissors" <?php echo ($playerChoice =="scissors") ? "checked" : "" ?>><label class="<?php echo($playerChoice=="scissors") ? "img_checked" : ""?>image scissorsimg" for ="scissors">Scissors</label>
-                            
+                            <input class= "option" type="radio" name="playerChoice" value="scissors" id="scissors" <?php echo ($playerChoice=="scissors") ? "checked" : "" ?> ><label class="<?php echo($playerChoice=="scissors") ? "img_checked" : ""?> image scissorsimg" for ="scissors">Scissors</label>
+
                         </div>
                         <button type="submit" name="submitGame" >Roshambo</button>
                     </form>
@@ -82,9 +82,11 @@
                         <h2>Play again?</h2>
                             <form action="process_option.php" method="POST">
                                 <div class="optionArea">
-                                    <input class= "option" type="radio" name="playerChoice" value="rock" id="rock" <?php echo ($playerChoice =="rock") ? "checked" : "" ?>><label class="<?php echo($playerChoice=="rock") ? "img_checked" : ""?> image rockimg" for ="rock" >Rock</label>
-                                    <input class= "option" type="radio" name="playerChoice" value="paper" id="papper" <?php echo ($playerChoice =="paper") ? "checked" : "" ?>><label class="<?php echo($playerChoice=="paper") ? "img_checked" : ""?>image paperimg" for ="papper">Paper</label>
-                                    <input class= "option" type="radio" name="playerChoice" value="scissors" id="scissors" <?php echo ($playerChoice =="scissors") ? "checked" : "" ?>><label class="<?php echo($playerChoice=="scissors") ? "img_checked" : ""?>image scissorsimg" for ="scissors">Scissors</label>
+                                    <input class= "option" type="radio" name="playerChoice" value="rock" id="rock" <?php echo ($playerChoice=="rock") ? "checked" : "" ?> ><label class="<?php echo($playerChoice=="rock") ? "img_checked" : ""?> image rockimg" for ="rock" >Rock</label>
+
+                                    <input class= "option" type="radio" name="playerChoice" value="paper" id="papper" <?php echo ($playerChoice=="paper") ? "checked" : "" ?> ><label class="<?php echo($playerChoice=="paper") ? "img_checked" : ""?> image paperimg" for ="papper">Paper</label>
+
+                                    <input class= "option" type="radio" name="playerChoice" value="scissors" id="scissors" <?php echo ($playerChoice=="scissors") ? "checked" : "" ?> ><label class="<?php echo($playerChoice=="scissors") ? "img_checked" : ""?> image scissorsimg" for ="scissors">Scissors</label>
                                 </div>
                                 <button type="submit" name="submitGame" >Roshambo</button>
                             </form>
@@ -98,9 +100,11 @@
                         <p>You must select one option below!</p>
                         <form action="process_option.php" method="POST">
                             <div class="optionArea">
-                                <input class= "option" type="radio" name="playerChoice" value="rock" id="rock" <?php echo ($playerChoice =="rock") ? "checked" : "" ?>><label class="<?php echo($playerChoice=="rock") ? "img_checked" : ""?> image rockimg" for ="rock" >Rock</label>
-                                <input class= "option" type="radio" name="playerChoice" value="paper" id="papper" <?php echo ($playerChoice =="paper") ? "checked" : "" ?>><label class="<?php echo($playerChoice=="paper") ? "img_checked" : ""?>image paperimg" for ="papper">Paper</label>
-                                <input class= "option" type="radio" name="playerChoice" value="scissors" id="scissors" <?php echo ($playerChoice =="scissors") ? "checked" : "" ?>><label class="<?php echo($playerChoice=="scissors") ? "img_checked" : ""?>image scissorsimg" for ="scissors">Scissors</label>
+                                <input class= "option" type="radio" name="playerChoice" value="rock" id="rock" <?php echo ($playerChoice=="rock") ? "checked" : "" ?> ><label class="<?php echo($playerChoice=="rock") ? "img_checked" : ""?> image rockimg" for ="rock" >Rock</label>
+
+                                <input class= "option" type="radio" name="playerChoice" value="paper" id="papper" <?php echo ($playerChoice=="paper") ? "checked" : "" ?> ><label class="<?php echo($playerChoice=="paper") ? "img_checked" : ""?> image paperimg" for ="papper">Paper</label>
+
+                                <input class= "option" type="radio" name="playerChoice" value="scissors" id="scissors" <?php echo ($playerChoice=="scissors") ? "checked" : "" ?> ><label class="<?php echo($playerChoice=="scissors") ? "img_checked" : ""?> image scissorsimg" for ="scissors">Scissors</label>
                             </div>
                             <button type="submit" name="submitGame" >Roshambo</button>
                         </form>

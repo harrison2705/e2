@@ -14,8 +14,8 @@ body {
     font-family: sofia-pro, sans-serif;
     margin: 50 0;
     padding: 0;
-    background-color: #264653;
-    color: white;
+    background-color: #3d405b;
+    color: #f4f1de;
 }
 *:focus {
     outline: none;
@@ -26,6 +26,7 @@ p, li {
 h1,h2 {
     color: #E9C46A; 
 }
+
 /*Style for Game section*/
 
 section.gameSection {
@@ -35,6 +36,8 @@ section h2.name {
     font-family: "calgary-script-ot", sans-serif;
     padding-bottom: 0;
     color: #E9C46A;
+    font-size: 4rem;
+    margin-bottom: 0;
 }
 input {
    display: block; 
@@ -48,70 +51,73 @@ form dive {
 label {
     font-family:"arbotek", sans-serif;
 }
-
 input.option {
-    margin:0;padding:0;
+    margin:10px; 
+    padding:10px;
     -webkit-appearance:none;
        -moz-appearance:none;
             appearance:none;
     width: 10px;
 }
-
 div.optionArea {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
 }
+
+.rockimg {
+    background-image:url(img/rock.png);
+}
+.paperimg {
+    background-image:url(img/paper.png);
+}
+.scissorsimg {
+    background-image:url(img/scissors.png);
+}
+
 input[type=radio]:checked + label {
     cursor:pointer;
     background-size:contain;
     background-repeat:no-repeat;
     display:inline-block;
     width:100px;
-    height:70px;
-    -webkit-filter: brightness(1.8) grayscale(0) opacity(0.9);
-       -moz-filter: brightness(1.8) grayscale(0) opacity(0.9);
-            filter: brightness(1.8) grayscale(0) opacity(0.9);
+    height:100px;
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
 }
 .image {
+
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgba(0, 0, 0, 0);;
     cursor:pointer;
     background-size:contain;
     background-repeat:no-repeat;
     display:inline-block;
     width:100px;
-    height:70px;
-        -webkit-transition: all 100ms ease-in;
-       -moz-transition: all 100ms ease-in;
-            transition: all 100ms ease-in;
-    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
-       -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
-            filter: brightness(1.8) grayscale(1) opacity(.7);
+    height:90px;
+    -webkit-transition: all 100ms ease-in;
+    -moz-transition: all 100ms ease-in;
+    transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.5);
+    -moz-filter: brightness(1.8) grayscale(1) opacity(.5);
+    filter: brightness(1.8) grayscale(1) opacity(.5);
 }
 .image:hover {
-       -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
-       -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
-            filter: brightness(1.2) grayscale(.5) opacity(.9);
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+    -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+    filter: brightness(1.2) grayscale(.5) opacity(.9);
 }
-.rockimg {
-    background-image:url(http://i.imgur.com/SJbRQF7.png);
-    width:100px;
-    height:70px;
-}
-.paperimg {
-    background-image:url(http://i.imgur.com/SJbRQF7.png);
-}
-.scissorsimg {
-    background-image:url(http://i.imgur.com/SJbRQF7.png);
-}
-
 
 /*Style for Button*/
-
 button {
+    text-align: center;
     display: block;
+    margin-top: 20px;
     padding: 10px 80px;
     border-radius: 25px;
-    background-color: #E76F51;
+    background-color: #e07a5f;
     text-transform: uppercase;
     color: white;
 }
