@@ -3,6 +3,7 @@
 <head>
     <title> DGMD E-1 | Project 2 </title>
     <meta charset='utf-8'>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -21,8 +22,8 @@
     </section>
     <hr>
     <!-- Game -->
-    <section> 
-        <h2>Game: ROSHAMBO</h2>
+    <section class="gameSection"> 
+        <h2 class="name">ROSHAMBO</h2>
        <!--Form to input player's name -->
 
         <?php if(!$havePlayerInfo) { ?>
@@ -30,7 +31,7 @@
                 <div>
                     <label for = 'namePlayer'> Can you please tell us your name?</label>
                     <input type = 'text' id = 'namePlayer' name = 'namePlayer'>
-                    <button type = 'submit' name='submitName'>Of course!</button>
+                    <button type = 'submit' name='submitName'>Let's go!</button>
                 </div>
             </form>
         <?php } ?>
@@ -40,10 +41,15 @@
                     <p>Hello <?php echo $namePlayer?>!</p>
                     <p> I guess you already know the rule. So, what is your option?</p>
                     <form action="process_option.php" method="POST">
-                        <input type="radio" name="playerChoice" value="rock" id="rock"><label for ="rock">Rock</label>
-                        <input type="radio" name="playerChoice" value="paper" id="papper"><label for ="papper">Paper</label>
-                        <input type="radio" name="playerChoice" value="scissors" id="scissors"><label for ="scissors">Scissors</label>
-                        <input type="submit" name="submitGame" value="Roshambo"/>
+                        <div class="optionArea">
+                             <input class= "option" type="radio" name="playerChoice" value="rock" id="rock" <?php echo ($playerChoice =="rock") ? "checked" : "" ?>><label class="<?php echo($playerChoice=="rock") ? "img_checked" : ""?> image rockimg" for ="rock" >Rock</label>
+
+                            <input class= "option" type="radio" name="playerChoice" value="paper" id="papper" <?php echo ($playerChoice =="paper") ? "checked" : "" ?>><label class="<?php echo($playerChoice=="paper") ? "img_checked" : ""?>image paperimg" for ="papper">Paper</label>
+
+                            <input class= "option" type="radio" name="playerChoice" value="scissors" id="scissors" <?php echo ($playerChoice =="scissors") ? "checked" : "" ?>><label class="<?php echo($playerChoice=="scissors") ? "img_checked" : ""?>image scissorsimg" for ="scissors">Scissors</label>
+                            
+                        </div>
+                        <button type="submit" name="submitGame" >Roshambo</button>
                     </form>
                  <?php
                 } else { ?>
@@ -57,10 +63,11 @@
                     </form>
                 <?php }
             } ?>
-
         <?php 
             if (isset($results2)) {
-                if (($playerChoice !== "") and ($playerChoice != "playerErr")) {?> 
+                
+                if (($playerChoice !== "") and ($playerChoice != "playerErr")) {?>
+                    <h2>Results</h2> 
                     <p>You chose <?php echo $playerChoice?>.</p>
                     <p>Computer chose <?php echo $computerChoice?>.</p>
                     <?php
@@ -72,6 +79,15 @@
                         } elseif ($winner == "tie") {
                             ?><p>Ties!</p><?php
                         }?>
+                        <h2>Play again?</h2>
+                            <form action="process_option.php" method="POST">
+                                <div class="optionArea">
+                                    <input class= "option" type="radio" name="playerChoice" value="rock" id="rock" <?php echo ($playerChoice =="rock") ? "checked" : "" ?>><label class="<?php echo($playerChoice=="rock") ? "img_checked" : ""?> image rockimg" for ="rock" >Rock</label>
+                                    <input class= "option" type="radio" name="playerChoice" value="paper" id="papper" <?php echo ($playerChoice =="paper") ? "checked" : "" ?>><label class="<?php echo($playerChoice=="paper") ? "img_checked" : ""?>image paperimg" for ="papper">Paper</label>
+                                    <input class= "option" type="radio" name="playerChoice" value="scissors" id="scissors" <?php echo ($playerChoice =="scissors") ? "checked" : "" ?>><label class="<?php echo($playerChoice=="scissors") ? "img_checked" : ""?>image scissorsimg" for ="scissors">Scissors</label>
+                                </div>
+                                <button type="submit" name="submitGame" >Roshambo</button>
+                            </form>
                         <!--Form to play again-->
                         <form method = 'POST' action = 'process_playAgain.php' class = 'form'>
                             <div>
@@ -81,13 +97,14 @@
                     } else {?> 
                         <p>You must select one option below!</p>
                         <form action="process_option.php" method="POST">
-                            <input type="radio" name="playerChoice" value="rock" id="rock"><label for ="rock">Rock</label>
-                            <input type="radio" name="playerChoice" value="paper" id="papper"><label for ="papper">Paper</label>
-                            <input type="radio" name="playerChoice" value="scissors" id="scissors"><label for ="scissors">Scissors</label>
-                            <input type="submit" name="submitGame" value="Roshambo"/>
+                            <div class="optionArea">
+                                <input class= "option" type="radio" name="playerChoice" value="rock" id="rock" <?php echo ($playerChoice =="rock") ? "checked" : "" ?>><label class="<?php echo($playerChoice=="rock") ? "img_checked" : ""?> image rockimg" for ="rock" >Rock</label>
+                                <input class= "option" type="radio" name="playerChoice" value="paper" id="papper" <?php echo ($playerChoice =="paper") ? "checked" : "" ?>><label class="<?php echo($playerChoice=="paper") ? "img_checked" : ""?>image paperimg" for ="papper">Paper</label>
+                                <input class= "option" type="radio" name="playerChoice" value="scissors" id="scissors" <?php echo ($playerChoice =="scissors") ? "checked" : "" ?>><label class="<?php echo($playerChoice=="scissors") ? "img_checked" : ""?>image scissorsimg" for ="scissors">Scissors</label>
+                            </div>
+                            <button type="submit" name="submitGame" >Roshambo</button>
                         </form>
                     <?php } 
-
             } ?>
     </section>
 

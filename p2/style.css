@@ -1,0 +1,117 @@
+@charset "UTF-8";
+@import url("https://use.typekit.net/fgz8ept.css");
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+
+
+/*Style for Body*/
+html {
+    box-sizing: border-box;
+}
+*, *:after, *:before {
+    box-sizing: inherit;
+}
+body { 
+    font-family: sofia-pro, sans-serif;
+    margin: 50 0;
+    padding: 0;
+    background-color: #264653;
+    color: white;
+}
+*:focus {
+    outline: none;
+}
+p, li {
+    font-family: "arbotek", sans-serif;
+}
+h1,h2 {
+    color: #E9C46A; 
+}
+/*Style for Game section*/
+
+section.gameSection {
+    margin: 0 30%;
+}
+section h2.name {
+    font-family: "calgary-script-ot", sans-serif;
+    padding-bottom: 0;
+    color: #E9C46A;
+}
+input {
+   display: block; 
+   width: 50%;
+   margin: 0.5rem 0rem;
+   padding: 10px;
+}
+form dive {
+    width: 100%;
+}
+label {
+    font-family:"arbotek", sans-serif;
+}
+
+input.option {
+    margin:0;padding:0;
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+    width: 10px;
+}
+
+div.optionArea {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+input[type=radio]:checked + label {
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:100px;
+    height:70px;
+    -webkit-filter: brightness(1.8) grayscale(0) opacity(0.9);
+       -moz-filter: brightness(1.8) grayscale(0) opacity(0.9);
+            filter: brightness(1.8) grayscale(0) opacity(0.9);
+}
+.image {
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:100px;
+    height:70px;
+        -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+       -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+            filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+.image:hover {
+       -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+       -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+            filter: brightness(1.2) grayscale(.5) opacity(.9);
+}
+.rockimg {
+    background-image:url(http://i.imgur.com/SJbRQF7.png);
+    width:100px;
+    height:70px;
+}
+.paperimg {
+    background-image:url(http://i.imgur.com/SJbRQF7.png);
+}
+.scissorsimg {
+    background-image:url(http://i.imgur.com/SJbRQF7.png);
+}
+
+
+/*Style for Button*/
+
+button {
+    display: block;
+    padding: 10px 80px;
+    border-radius: 25px;
+    background-color: #E76F51;
+    text-transform: uppercase;
+    color: white;
+}

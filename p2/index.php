@@ -41,7 +41,6 @@ if (!is_null($_SESSION['results2'])) {
             $winner = $playerChoice == "paper" ? 'computer' : 'player';
         }
     }
-
     $_SESSION['results2'] = null;
 }
 
