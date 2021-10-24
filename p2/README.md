@@ -5,7 +5,7 @@ _
 + URL: <http://e2p2.huynguyenau.me>
 
 ## Outside resources
-No outside resources was used.
-
++ CSS Flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
++ 
 ## Notes for instructor
 
