@@ -22,7 +22,9 @@
     </section>
     <!-- Game -->
     <section class="gameSection"> 
+        <img src='img/game_logo.png' class="logo">
         <h2 class="name">ROSHAMBO</h2>
+        
 
        <!--Form where the player inputs their name -->
         <?php if(!$havePlayerInfo) { ?>
@@ -39,8 +41,9 @@
         <?php 
             if(isset($results1)) {
                 if ($namePlayer == $results1['namePlayer']){?>
-                    <p>Hello <?php echo $namePlayer?>!</p>
                     <p> Rock, Paper or Scissors? What is your choice?</p>
+                    <p>Hello <?php echo $namePlayer?>!</p>
+
                     <form action="process_option.php" method="GET">
                         <div class="optionArea">
                             <input class= "option" type="radio" name="playerChoice" value="rock" id="rock" <?php echo ($playerChoice=="rock") ? "checked" : "" ?>>
@@ -78,14 +81,14 @@
                     <p>You chose <span class="options"><?php echo $playerChoice?></span> || Computer chose <span class="options"><?php echo $computerChoice?></span>.</p><?php
                     // Decide the winner
                     if ($winner == "computer") {?>
-                        <i class="fas fa-sad-tear"></i>
-                        <p class="results">Sorry, computer wins...</p><hr><?php
+                        <p class="results">Sorry, computer wins...</p>
+                        <i class="fas fa-sad-tear"></i><hr><?php
                     } elseif ($winner == "player") {?>
-                        <i class="fas fa-laugh-wink" ></i>
-                        <p class="results"> Congrats! You wins!</p><hr><?php
+                        <p class="results"> Congrats! You wins!</p>
+                        <i class="fas fa-laugh-wink" ></i><hr><?php
                     } elseif ($winner == "tie") {?>
-                        <i class="fas fa-meh"></i>
-                        <p class="results">Ties!</p><hr><?php
+                        <p class="results">Ties!</p>
+                        <i class="fas fa-meh"></i><hr><?php
                     }?>
                     <h2>Play again?</h2>
                     <p>Please click to choose your option!</p>
