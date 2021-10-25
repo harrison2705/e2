@@ -65,8 +65,7 @@
                 <?php echo display_option();?>
                 <input class="restart back" type="button" onclick = "location.href='index.php';" value = "Go back?"><?php
             } 
-        }
-        ?>
+        }?>
     </section>
 </body>
 </html>
