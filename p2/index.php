@@ -20,7 +20,6 @@ if (!is_null($_SESSION['results1'])) {
     $_SESSION['results1'] = null; 
     $havePlayerInfo = true;
 }
-
 //Get the option that the player chose
 if (!is_null($_SESSION['results2'])) {
     $havePlayerInfo = true;

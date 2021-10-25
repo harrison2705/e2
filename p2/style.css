@@ -121,7 +121,7 @@ input[type=radio]:checked + label {
     filter: brightness(1.2) grayscale(.5) opacity(.9);
 }
 /*Style for Button*/
-button {
+button, input[type=button]  {
     text-align: center;
     display: block;
     margin-top: 20px;
@@ -137,7 +137,7 @@ button {
     border-style: none;
     cursor: pointer;
 }
-button:hover {
+button:hover, input[type=button]:hover {
     background-color:#81b29a;
     color: #3d405b;
 }

@@ -1,7 +1,9 @@
 <?php 
-session_start();
+ session_start();
 $playerChoice = false;
-$playerChoice = isset($_GET['submitGame']) ? $_GET['playerChoice'] : '';
+
+$playerChoice = isset($_POST['submitGame']) ? $_POST['playerChoice'] : '';
+
 $_SESSION['results2'] = [
     'playerChoice'=> $playerChoice,
 ];

@@ -24,11 +24,9 @@
     <section class="gameSection"> 
         <img src='img/game_logo.png' class="logo">
         <h2 class="name">ROSHAMBO</h2>
-        
-
        <!--Form where the player inputs their name -->
         <?php if(!$havePlayerInfo) { ?>
-            <form method = 'GET' action = 'process_name.php' class = 'form'>
+            <form method = 'POST' action = 'process_name.php' class = 'form'>
                 <div>
                     <label for = 'namePlayer'>Can you please tell us your name?</label>
                     <input type = 'text' id = 'namePlayer' name = 'namePlayer'>
@@ -36,15 +34,13 @@
                 </div>
             </form>
         <?php } ?>
-
         <!--Form to display options -->
         <?php 
             if(isset($results1)) {
                 if ($namePlayer == $results1['namePlayer']){?>
-                    <p> Rock, Paper or Scissors? What is your choice?</p>
                     <p>Hello <?php echo $namePlayer?>!</p>
-
-                    <form action="process_option.php" method="GET">
+                    <p> Rock, Paper or Scissors? What is your choice?</p>
+                    <form action="process_option.php" method="POST">
                         <div class="optionArea">
                             <input class= "option" type="radio" name="playerChoice" value="rock" id="rock" <?php echo ($playerChoice=="rock") ? "checked" : "" ?>>
                             <label class="<?php echo($playerChoice=="rock") ? "img_checked" : ""?> image rockimg" for ="rock" >Rock</label>
@@ -57,22 +53,18 @@
                         </div>
                         <button type="submit" name="submitGame" >Roshambo</button>
                     </form>
-                    <form method = 'POST' action = 'process_playAgain.php' class = 'form'>
-                        <div>
-                            <button type = 'submit' name='playAgain'>GO BACK?</button>
-                        </div>
-                    </form>
+                    <input class="restart" type="button" onclick = "location.href='index.php';" value = "Go back?">
                  <?php
                 } else { ?>
-                    <p> <?php echo $namePlayer?></p>
-                        <form method = 'GET' action = 'process_name.php' class = 'form'>
-                            <div>
+                    <p><?php echo $namePlayer?></p>
+                    <form method = 'POST' action = 'process_name.php' class = 'form'>
+                        <div>
                             <label for = 'namePlayer'> Can you please tell us your name?</label>
                             <input type = 'text' id = 'namePlayer' name = 'namePlayer'>
                             <button type = 'submit' name='submitName'>Of course!</button>
-                            </div>
-                        </form> <?php
-                    }
+                        </div>
+                    </form> <?php
+                }
             } 
             // Display results
             if (isset($results2)) {
@@ -92,7 +84,7 @@
                     }?>
                     <h2>Play again?</h2>
                     <p>Please click to choose your option!</p>
-                        <form action="process_option.php" method="GET">
+                        <form action="process_option.php" method="POST">
                             <div class="optionArea">
                                 <input class= "option" type="radio" name="playerChoice" value="rock" id="rock" <?php echo ($playerChoice=="rock") ? "checked" : "" ?>>
                                 <label class="<?php echo($playerChoice=="rock") ? "img_checked" : ""?> image rockimg" for ="rock" >Rock</label>
@@ -105,15 +97,10 @@
                             </div>
                              <button type="submit" name="submitGame" >Roshambo</button>
                         </form>
-                      
-                        <form method = 'POST' action = 'process_playAgain.php' class = 'form'>
-                            <div>
-                                <button type = 'submit' name='playAgain'>Restart?</button>
-                            </div>
-                        </form><?php
+                        <input class="restart" type="button" onclick = "location.href='index.php';" value = "Restart?"><?php
                 } else {?> 
                         <p>You must select one option below!</p>
-                        <form action="process_option.php" method="GET">
+                        <form action="process_option.php" method="POST">
                             <div class="optionArea">
                                 <input class= "option" type="radio" name="playerChoice" value="rock" id="rock" <?php echo ($playerChoice=="rock") ? "checked" : "" ?>>
                                 <label class="<?php echo($playerChoice=="rock") ? "img_checked" : ""?> image rockimg" for ="rock" >Rock</label>
@@ -124,16 +111,11 @@
                                 <input class= "option" type="radio" name="playerChoice" value="scissors" id="scissors" <?php echo ($playerChoice=="scissors") ? "checked" : "" ?>>
                                 <label class="<?php echo($playerChoice=="scissors") ? "img_checked" : ""?> image scissorsimg" for ="scissors">Scissors</label>
                             </div>
-
                             <button type="submit" name="submitGame" >Roshambo</button>
                         </form>
-                        <form method = 'POST' action = 'process_playAgain.php' class = 'form'>
-                            <div>
-                                <button type = 'submit' name='playAgain'>GO BACK?</button>
-                            </div>
-                        </form><?php 
+                        <input class="restart" type="button" onclick = "location.href='index.php';" value = "Go back?"><?php
                 } 
-            } ?>
+            }?>
     </section>
 </body>
 </html>
