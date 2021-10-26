@@ -11,10 +11,14 @@ https://stackoverflow.com/questions/12018245/regular-expression-to-validate-user
 + Differences between isset and is_null: 
 https://code.tutsplus.com/tutorials/php-isset-vs-empty-vs-is_null--cms-37162
 (I found this blog after Susan helped me to solve "Notice: Undefined Index" issue.)
-+ Differences between button and input type="button":
++ Differences between "button" and "input type="button"":
 https://stackoverflow.com/questions/469059/button-vs-input-type-button-which-to-use
 (I read this discussion after Susan recommended me to change the "button" to "input type="button"")
 
 ## Notes for instructor
+<<<<<<< HEAD
 + Thank you very much for answering all my questions!
+=======
+Thank you very much for your support. 
+>>>>>>> bf085abe5debb9d6d2aae57e64bd85f53309dc83
 
