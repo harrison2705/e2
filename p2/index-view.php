@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/bfc1736198.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <!--Introduction-->
+    <!--Introduction Section-->
     <section class="introduction">
         <h1> DGMD E2 | Project 2: Roshambo</h1>
         <h3> Huy Quang Nguyen | Student ID: 71407772 </h3>
@@ -20,7 +20,7 @@
                 <li> Player can choose to play again or restart the game.</li>
             </ul>
     </section>
-    <!-- Game -->
+    <!-- Game Section-->
     <section class="gameSection"> 
         <img src='img/game_logo.png' class="logo">
         <h2 class="name">ROSHAMBO</h2>
@@ -96,7 +96,7 @@
                     <button type="submit" name="submitGame" >Roshambo</button>
                 </form>
                 <input class="restart begin" type="button" onclick = "location.href='index.php';" value = "Restart?"><?php
-            } else {?> 
+            } else { ?> 
                 <p>You must select one option below!</p>
                 <form action="process_option.php" method="POST">
                     <div class="optionArea">
