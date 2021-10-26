@@ -24,7 +24,7 @@
     <section class="gameSection"> 
         <img src='img/game_logo.png' class="logo">
         <h2 class="name">ROSHAMBO</h2>
-        <!--Form where the player inputs their name -->
+        <!--Form to let player inputs their name -->
         <?php if(!$havePlayerInfo) { 
             ?><form method = 'POST' action = 'process_name.php' class = 'form'>
                 <div>
