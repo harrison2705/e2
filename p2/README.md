@@ -18,7 +18,5 @@ https://stackoverflow.com/questions/469059/button-vs-input-type-button-which-to-
 ## Notes for instructor
 <<<<<<< HEAD
 + Thank you very much for answering all my questions!
-=======
-Thank you very much for your support. 
->>>>>>> bf085abe5debb9d6d2aae57e64bd85f53309dc83
+
 
