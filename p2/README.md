@@ -9,6 +9,7 @@ _
 + Regular expression to validate username: 
 https://stackoverflow.com/questions/12018245/regular-expression-to-validate-username
 + CSS Flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
++ CSS transition: https://www.w3schools.com/css/css3_transitions.asp 
 + Differences between "isset" and "is_null": 
 https://code.tutsplus.com/tutorials/php-isset-vs-empty-vs-is_null--cms-37162
 (I found this blog after Susan helped me to solve "Notice: Undefined Index" issue.)
