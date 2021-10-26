@@ -26,42 +26,18 @@
         <h2 class="name">ROSHAMBO</h2>
         <!--Form to let player inputs their name -->
         <?php if(!$havePlayerInfo) { 
-            ?><form method = 'POST' action = 'process_name.php' class = 'form'>
-                <div>
-                    <label for = 'namePlayer'>Can you please tell us your name?</label>
-                    <input type = 'text' id = 'namePlayer' name = 'namePlayer'>
-                    <button type = 'submit' name='submitName'>Let's go!</button>
-                </div>
-            </form><?php
+            require 'form-name-view.php';
         }
         //Form to display options -->
         if(isset($resultsName)) {
             if ($namePlayer == $resultsName['namePlayer']){?>
                 <p>Hello <?php echo $namePlayer?>!</p>
                 <p> Rock, Paper or Scissors? What is your choice?</p>        
-                <form action="process_option.php" method="POST">
-                    <div class="optionArea">
-                    <input class= "option" type="radio" name="playerChoice" value="rock" id="rock" <?php echo (isset($playerChoice) and $playerChoice=="rock") ? "checked" : "" ?>>
-                    <label class="<?php echo($playerChoice=="rock") ? "img_checked" : ""?> image rockimg" for ="rock" >Rock</label>
-
-                    <input class= "option" type="radio" name="playerChoice" value="paper" id="papper" <?php echo (isset($playerChoice) and $playerChoice=="paper") ? "checked" : "" ?>>
-                    <label class="<?php echo($playerChoice=="paper") ? "img_checked" : ""?> image paperimg" for ="papper">Paper</label>
-
-                    <input class= "option" type="radio" name="playerChoice" value="scissors" id="scissors" <?php echo (isset($playerChoice) and $playerChoice=="scissors") ? "checked" : "" ?>>
-                    <label class="<?php echo($playerChoice=="scissors") ? "img_checked" : ""?> image scissorsimg" for ="scissors">Scissors</label>
-                    </div>
-                    <button type="submit" name="submitGame" >Roshambo</button>
-                </form>
+                <?php require 'form-options-view.php'; ?>
                 <input class="restart" type="button" onclick = "location.href='index.php';" value = "Go back?"><?php
             } else { ?>
                 <p><?php echo $namePlayer?></p>
-                <form method = 'POST' action = 'process_name.php' class = 'form'>
-                    <div>
-                        <label for = 'namePlayer'>Can you please tell us your name?</label>
-                        <input type = 'text' id = 'namePlayer' name = 'namePlayer'>
-                        <button type = 'submit' name='submitName'>Let's go!</button>
-                    </div>
-                </form><?php
+                <?php require 'form-name-view.php';
             }
         } 
         // Display results
@@ -82,35 +58,11 @@
                 }?>
                 <h2>Play again?</h2>
                 <p>Please click to choose your option!</p>
-                <form action="process_option.php" method="POST">
-                    <div class="optionArea">
-                    <input class= "option" type="radio" name="playerChoice" value="rock" id="rock" <?php echo (isset($playerChoice) and $playerChoice=="rock") ? "checked" : "" ?>>
-                    <label class="<?php echo($playerChoice=="rock") ? "img_checked" : ""?> image rockimg" for ="rock" >Rock</label>
-
-                    <input class= "option" type="radio" name="playerChoice" value="paper" id="papper" <?php echo (isset($playerChoice) and $playerChoice=="paper") ? "checked" : "" ?>>
-                    <label class="<?php echo($playerChoice=="paper") ? "img_checked" : ""?> image paperimg" for ="papper">Paper</label>
-
-                    <input class= "option" type="radio" name="playerChoice" value="scissors" id="scissors" <?php echo (isset($playerChoice) and $playerChoice=="scissors") ? "checked" : "" ?>>
-                    <label class="<?php echo($playerChoice=="scissors") ? "img_checked" : ""?> image scissorsimg" for ="scissors">Scissors</label>
-                    </div>
-                    <button type="submit" name="submitGame" >Roshambo</button>
-                </form>
+                <?php require 'form-options-view.php';?>
                 <input class="restart begin" type="button" onclick = "location.href='index.php';" value = "Restart?"><?php
             } else { ?> 
                 <p>You must select one option below!</p>
-                <form action="process_option.php" method="POST">
-                    <div class="optionArea">
-                    <input class= "option" type="radio" name="playerChoice" value="rock" id="rock" <?php echo (isset($playerChoice) and $playerChoice=="rock") ? "checked" : "" ?>>
-                    <label class="<?php echo($playerChoice=="rock") ? "img_checked" : ""?> image rockimg" for ="rock" >Rock</label>
-
-                    <input class= "option" type="radio" name="playerChoice" value="paper" id="papper" <?php echo (isset($playerChoice) and $playerChoice=="paper") ? "checked" : "" ?>>
-                    <label class="<?php echo($playerChoice=="paper") ? "img_checked" : ""?> image paperimg" for ="papper">Paper</label>
-
-                    <input class= "option" type="radio" name="playerChoice" value="scissors" id="scissors" <?php echo (isset($playerChoice) and $playerChoice=="scissors") ? "checked" : "" ?>>
-                    <label class="<?php echo($playerChoice=="scissors") ? "img_checked" : ""?> image scissorsimg" for ="scissors">Scissors</label>
-                    </div>
-                    <button type="submit" name="submitGame" >Roshambo</button>
-                </form>
+                <?php require 'form-options-view.php';?>
                 <input class="restart back" type="button" onclick = "location.href='index.php';" value = "Go back?"><?php
             } 
         }?>
