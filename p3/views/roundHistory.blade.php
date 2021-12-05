@@ -9,7 +9,7 @@
         <a class="link" href="/">Return to the Home page</a>
         <h2>Round history</h2>
         @foreach ($rounds as $round) 
-            <p>Round {{$round['id']}} - <a class="round-link" href='/round?{{$round['dateSaved']}}'>{{$round['dateSaved']}}</a></p>
+            <p>Round {{$round['id']}} - <a class="round-link" href='/round?dateSaved={{$round['dateSaved']}}'>{{$round['dateSaved']}}</a></p>
         @endforeach
     </section>   
 @endsection

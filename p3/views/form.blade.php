@@ -9,5 +9,5 @@
     <input class= "option" type="radio" name="playerChoice" value="scissors" id="scissors" {{(isset($playerChoice) and $playerChoice=="scissors") ? "checked" : "" }}>
     <label class="{{($playerChoice=="scissors") ? "img_checked" : ""}} image scissorsimg" for ="scissors">Scissors</label>
     </div>
-    <button type="submit" name="submitGame" >Roshambo</button>
+    <button test= 'roshambo-button' type="submit" name="submitGame" >Roshambo</button>
 </form>

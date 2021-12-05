@@ -181,3 +181,9 @@ a.round-link {
 a.round-link:hover {
     color: #81b29a;
 }
+span.category {
+    color: hotpink;
+}
+p {
+    text-transform: capitalize;
+}

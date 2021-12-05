@@ -10,11 +10,12 @@
         <a class="link" href="/roundHistory">Round History</a> 
         <h2>Round details</h2>
         @foreach ($roundDetails as $roundDetail) 
-            <p>Time: {{$roundDetail['dateSaved']}}</p>
-            <p>Player Choice: {{$roundDetail['playerChoice']}}</p>
-            <p>Computer Choice: {{$roundDetail['computerChoice']}}</p>
-            <p>Winner{{$roundDetail['winner']}}</p>
+            @if($roundDetail['dateSaved'] == $param)
+                <p><span class="category">Played at: </span> {{$roundDetail['dateSaved']}}</p>
+                <p><span class="category">Player Choice: </span> <span class='player-choice'>{{$roundDetail['playerChoice']}}</span></p>
+                <p><span class="category">Computer Choice: </span> <span class='computer-choice'>{{$roundDetail['computerChoice']}}</span></p>
+                <p><span class="category">Winner: </span><span class='winner'>{{$roundDetail['winner']}}</span></p>
+            @endif
         @endforeach
     </section>   
-    
 @endsection

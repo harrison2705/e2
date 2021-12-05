@@ -12,8 +12,8 @@
         <form method = 'POST' action = '/user-name' class = 'form'>
             <div>
                 <label for = 'namePlayer'>Can you please tell us your name?</label>
-                <input type = 'text' id = 'namePlayer' name = 'namePlayer'>
-                <button type = 'submit' name='submitName'>Let's go!</button>
+                <input test='player-name-input' type = 'text' id = 'namePlayer' name = 'namePlayer'>
+                <button test ='player-submit-button' type = 'submit' name='submitName'>Let's go!</button>
             </div>
         </form>
         @endif
@@ -28,7 +28,7 @@
         @endif
         {{--Start the game after users input their name--}}
         @if($nameSaved)
-        <h1>Hello {{$namePlayer}} </h1>
+        <h1 test= 'player-name-confirmation'>Hello {{$namePlayer}} </h1>
         <p> Rock, Paper or Scissors? What is your choice?</p> 
         @include('form')
         @endif
@@ -39,13 +39,13 @@
                 <p>You chose <span class="options">{{$playerChoice}}</span> || Computer chose <span class="options"> {{$computerChoice}}</span>.</p>
                 {{--Decide the winner--}}
                 @if($winner == "computer")
-                    <p class="results">Sorry, computer wins...</p>
+                    <p test ='results-confirmation' class="results">Sorry, computer wins...</p>
                     <i class="fas fa-sad-tear"></i><hr>
                 @elseif($winner == "player")
-                    <p class="results"> Congrats! You wins!</p>
+                    <p test ='results-confirmation' class="results"> Congrats! You wins!</p>
                     <i class="fas fa-laugh-wink" ></i><hr>
                 @elseif($winner == "tie")
-                    <p class="results">Ties!</p>
+                    <p test ='results-confirmation' class="results">Ties!</p>
                     <i class="fas fa-meh"></i><hr>
                 @endif
                 {{--Ask the user if they want to play again--}}

@@ -39,8 +39,6 @@ class AppController extends Controller
     }
     public function show()
     {   
-  
-
          # Set up all the variables we need to make a connection
         $host = $this->app->env('DB_HOST');
         $database = $this->app->env('DB_NAME');
@@ -64,14 +62,14 @@ class AppController extends Controller
         } catch (\PDOException $e) {
             throw new \PDOException($e->getMessage(), (int)$e->getCode());
         }
+        $param = $this->app->param('dateSaved');
         $sqlRoundDetails = 'SELECT * from results';
         $executed = $this->app->db()->run($sqlRoundDetails);
-        
         $roundDetails = $executed -> fetchAll();
        
         return $this->app->view('show', [
             'roundDetails' => $roundDetails,
-
+            'param' => $param
         ]);
     }
     public function roundHistory()
@@ -148,8 +146,6 @@ class AppController extends Controller
         ]);
     }
     public function optionResults() {
-        
-
         $options = ["rock", "paper", "scissors"];
         $computerChoice = $options[array_rand($options, 1)];
         $playerChoice = $this->app->input('playerChoice');
