@@ -1,6 +1,6 @@
 
 # Project 3
-+ By: *your first and last name*
++ By: Huy Nguyen
 + URL: <http://e2p3.huynguyenau.me>
 
 ## Graduate requirement
