@@ -8,15 +8,15 @@
         <a test='return' class="link" href="/">Return to the Home page</a>
         <h2 test="round-history-h2">Game history</h2>
         @foreach ($roundCounts as $roundCount)
-            <p>The game has been played <b><span class='count'> {{$roundCount['COUNT(id)']}}</span></b> times</p>
+            <p><i class="fas fa-dice"></i>  The game has been played <b><span class='count'> {{$roundCount['COUNT(id)']}}</span></b> times</p>
         @endforeach
         
         @foreach ($playerWinCounts as $playerWinCount)
-            <p>Player won <b><span class='count'>{{$playerWinCount['COUNT(winner)']}}</span></b> times.</p>
+            <p><i class="fas fa-user"></i>  Player won <b><span class='count'>{{$playerWinCount['COUNT(winner)']}}</span></b> times.</p>
         @endforeach
 
         @foreach ($computerWinCounts as $computerWinCount)
-            <p>Computer won <b><span class='count'>{{$computerWinCount['COUNT(winner)']}}</span></b> times.</p>
+            <p><i class="fas fa-tv"></i>  Computer won <b><span class='count'>{{$computerWinCount['COUNT(winner)']}}</span></b> times.</p>
         @endforeach
     <hr>
         @foreach ($rounds as $round) 

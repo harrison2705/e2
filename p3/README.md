@@ -10,9 +10,13 @@
 
 ## Outside resources
 
++ Game ideas: https://www.playworks.org/game-library/ro-sham-bo-or-rock-paper-scissors/
++ Logo, and images were downloaded from https://thenounproject.com/term/black-and-white/
++ Fonts: Abotek and Sofia Pro (downloaded from https://fonts.adobe.com/)
++ Game icons: https://fontawesome.com/
 
 ## Notes for instructor
-
+Thank you very much for an excellent course!
 
 ## Codeception testing output
 ```

@@ -9,6 +9,7 @@
     <link rel='shortcut icon' href='/favicon.ico'>
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <link href='/css/style.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/bfc1736198.js" crossorigin="anonymous"></script>
 
     @yield('head')
 
