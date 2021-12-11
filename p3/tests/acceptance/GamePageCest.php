@@ -16,15 +16,12 @@ class GamePageCest
         $I->fillField('[test=player-name-input]', 'Huy');
         $I->click('[test=player-submit-button]');
         $I->see('hello');
-
     }
     public function testValidation (AcceptanceTester $I) {
          $I->amOnPage('/');
-
         $I->fillField('[test=player-name-input]', '');
         $I->click('[test=player-submit-button]');
         $I->seeElement('[test=validation-output]');
-
     }
     public function playGame(AcceptanceTester $I)
     {
