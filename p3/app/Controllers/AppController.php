@@ -56,9 +56,27 @@ class AppController extends Controller
         $sqldateSaved = 'SELECT id, dateSaved from results';
         $executed = $this->app->db()->run($sqldateSaved);
         $rounds = $executed -> fetchAll();
+        
+        #number of rounds
+        $sqlRoundCount = 'SELECT COUNT(id) from results';
+        $executedRoundCount = $this->app->db()->run($sqlRoundCount);
+        $roundCounts = $executedRoundCount->fetchAll();
+        
+        #number of rounds that Player won
+        $sqlPlayerWinCount = 'SELECT COUNT(winner) from results where winner="player"';
+        $executedPlayerWinCount = $this->app->db()->run($sqlPlayerWinCount);
+        $playerWinCounts = $executedPlayerWinCount->fetchAll();
+        
+        #number of rounds that Computer won
+        $sqlComputerWinCount = 'SELECT COUNT(winner) from results where winner="computer"';
+        $executedComputerWinCount = $this->app->db()->run($sqlComputerWinCount);
+        $computerWinCounts = $executedComputerWinCount->fetchAll();
 
         return $this->app->view('roundHistory', [
-            'rounds' => $rounds
+            'rounds' => $rounds,
+            'roundCounts' => $roundCounts,
+            'playerWinCounts' => $playerWinCounts,
+            'computerWinCounts' => $computerWinCounts
         ]);
 
     }
@@ -102,6 +120,8 @@ class AppController extends Controller
                 'winner' => $winner,
                 'dateSaved' => $dateSaved,
             ]);
+
+
         }
         return $this->app->redirect('/', [
             'playerChoice' => $playerChoice,
@@ -109,7 +129,7 @@ class AppController extends Controller
             'winner' => $winner,
             'haveOptionInfo' => true,
             'havePlayerInfo' => true,
-            'dateSaved' => $dateSaved,
+            'dateSaved' => $dateSaved
         ]);
     }
 }
