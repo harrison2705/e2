@@ -3,9 +3,6 @@ namespace App\Controllers;
 
 class AppController extends Controller
 {
-    /**
-     * This method is triggered by the route "/"
-     */ 
     public function index()
     {   
         $nameSaved = $this->app->old('nameSaved');
@@ -33,35 +30,17 @@ class AppController extends Controller
     {
         return $this->app->view('form');
     }
+    public function setupConnection()
+    {
+        return $this->app->view('setupConnection');
+    }
     public function intro()
     {
         return $this->app->view('intro');
     }
     public function show()
     {   
-         # Set up all the variables we need to make a connection
-        $host = $this->app->env('DB_HOST');
-        $database = $this->app->env('DB_NAME');
-        $username = $this->app->env('DB_USERNAME');
-        $password = $this->app->env('DB_PASSWORD');
-    
-        # DSN (Data Source Name) string
-        # contains the information required to connect to the database
-        $dsn = "mysql:host=$host;dbname=$database;charset=utf8mb4";
-
-        # Driver-specific connection options
-        $options = [
-            \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
-            \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
-            \PDO::ATTR_EMULATE_PREPARES => false,
-        ];
-
-        try {
-            # Create a PDO instance representing a connection to a database
-            $pdo = new \PDO($dsn, $username, $password, $options);
-        } catch (\PDOException $e) {
-            throw new \PDOException($e->getMessage(), (int)$e->getCode());
-        }
+        @include('setupConnection');
         $param = $this->app->param('dateSaved');
         $sqlRoundDetails = 'SELECT * from results';
         $executed = $this->app->db()->run($sqlRoundDetails);
@@ -74,32 +53,8 @@ class AppController extends Controller
     }
     public function roundHistory()
     {   
-         # Set up all the variables we need to make a connection
-        $host = $this->app->env('DB_HOST');
-        $database = $this->app->env('DB_NAME');
-        $username = $this->app->env('DB_USERNAME');
-        $password = $this->app->env('DB_PASSWORD');
-    
-        # DSN (Data Source Name) string
-        # contains the information required to connect to the database
-        $dsn = "mysql:host=$host;dbname=$database;charset=utf8mb4";
-
-        # Driver-specific connection options
-        $options = [
-            \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
-            \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
-            \PDO::ATTR_EMULATE_PREPARES => false,
-        ];
-
-        try {
-            # Create a PDO instance representing a connection to a database
-            $pdo = new \PDO($dsn, $username, $password, $options);
-        } catch (\PDOException $e) {
-            throw new \PDOException($e->getMessage(), (int)$e->getCode());
-        }
         $sqldateSaved = 'SELECT id, dateSaved from results';
         $executed = $this->app->db()->run($sqldateSaved);
-        
         $rounds = $executed -> fetchAll();
 
         return $this->app->view('roundHistory', [
@@ -109,29 +64,6 @@ class AppController extends Controller
     }
     public function userName()
     {   
-        # Set up all the variables we need to make a connection
-        $host = $this->app->env('DB_HOST');
-        $database = $this->app->env('DB_NAME');
-        $username = $this->app->env('DB_USERNAME');
-        $password = $this->app->env('DB_PASSWORD');
-    
-        # DSN (Data Source Name) string
-        # contains the information required to connect to the database
-        $dsn = "mysql:host=$host;dbname=$database;charset=utf8mb4";
-
-        # Driver-specific connection options
-        $options = [
-            \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
-            \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
-            \PDO::ATTR_EMULATE_PREPARES => false,
-        ];
-
-        try {
-            # Create a PDO instance representing a connection to a database
-            $pdo = new \PDO($dsn, $username, $password, $options);
-        } catch (\PDOException $e) {
-            throw new \PDOException($e->getMessage(), (int)$e->getCode());
-        }
         $namePlayer = $this->app->input('namePlayer'); 
 
         $this->app->validate([
@@ -149,6 +81,7 @@ class AppController extends Controller
         $options = ["rock", "paper", "scissors"];
         $computerChoice = $options[array_rand($options, 1)];
         $playerChoice = $this->app->input('playerChoice');
+
         if (empty($playerChoice)) {
             $playerChoice = "playerErr";
         } else {
@@ -161,40 +94,14 @@ class AppController extends Controller
             } elseif ($computerChoice == "scissors") {
                 $winner = $playerChoice == "paper" ? 'computer' : 'player';
             }
-            # Set up all the variables we need to make a connection
-            $host = $this->app->env('DB_HOST');
-            $database = $this->app->env('DB_NAME');
-            $username = $this->app->env('DB_USERNAME');
-            $password = $this->app->env('DB_PASSWORD');
-    
-            # DSN (Data Source Name) string
-            # contains the information required to connect to the database
-            $dsn = "mysql:host=$host;dbname=$database;charset=utf8mb4";
-
-            # Driver-specific connection options
-            $options = [
-                \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
-                \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
-                \PDO::ATTR_EMULATE_PREPARES => false,
-            ];
-
-            try {
-                # Create a PDO instance representing a connection to a database
-                $pdo = new \PDO($dsn, $username, $password, $options);
-            } catch (\PDOException $e) {
-                throw new \PDOException($e->getMessage(), (int)$e->getCode());
-            }
-            $dateSaved = gmdate('Y-m-d h:i:s');
-       
-            $sqlTemplate = "INSERT INTO results (playerChoice, computerChoice, winner, dateSaved) VALUES (:playerChoice, :computerChoice, :winner, :dateSaved)";
-            $values = [
+            
+            $dateSaved = date('Y-m-d h:i:s');
+            $this->app->db()->insert('results', [
                 'playerChoice' => $playerChoice,
                 'computerChoice' => $computerChoice,
                 'winner' => $winner,
-                'dateSaved' =>$dateSaved,
-            ];
-            $statement = $pdo->prepare($sqlTemplate);
-            $statement -> execute($values);
+                'dateSaved' => $dateSaved,
+            ]);
         }
         return $this->app->redirect('/', [
             'playerChoice' => $playerChoice,

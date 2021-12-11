@@ -17,12 +17,12 @@
             </div>
         </form>
         @endif
-        <a class="link" href="/roundHistory">Round History</a> 
+        <a class="link" href="/roundHistory">Game History</a> 
         {{--Display errors--}}
         @if ($app -> errorsExist())
-            <ul class='error alert'>
+            <ul test="validation-output" class='error alert'>
                 @foreach ($app->errors() as $error )
-                    <li>{{$error}}</li>
+                    <li>Your name cannot be empty and can only contain letters. Please input your name again!</li>
                 @endforeach
             </ul>
         @endif
@@ -35,17 +35,17 @@
         {{--Display options for users to choose--}}
         @if($haveOptionInfo)
             @if($playerChoice != "playerErr")
-                <h2>Results</h2> 
-                <p>You chose <span class="options">{{$playerChoice}}</span> || Computer chose <span class="options"> {{$computerChoice}}</span>.</p>
+                <h2 test='results-h2'>Results</h2> 
+                <p>You chose <span test ="player-outcome" class="options">{{$playerChoice}}</span> || Computer chose <span test ="computer-outcome" class="options"> {{$computerChoice}}</span>.</p>
                 {{--Decide the winner--}}
                 @if($winner == "computer")
-                    <p test ='results-confirmation' class="results">Sorry, computer wins...</p>
+                    <p test ='computer-wins' class="results">Sorry, computer wins...</p>
                     <i class="fas fa-sad-tear"></i><hr>
                 @elseif($winner == "player")
-                    <p test ='results-confirmation' class="results"> Congrats! You wins!</p>
+                    <p test ='player-wins' class="results"> Congrats! You wins!</p>
                     <i class="fas fa-laugh-wink" ></i><hr>
                 @elseif($winner == "tie")
-                    <p test ='results-confirmation' class="results">Ties!</p>
+                    <p test ='ties' class="results">Ties!</p>
                     <i class="fas fa-meh"></i><hr>
                 @endif
                 {{--Ask the user if they want to play again--}}
