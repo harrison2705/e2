@@ -38,9 +38,10 @@ class AppController extends Controller
     {
         return $this->app->view('intro');
     }
+   
     public function show()
-    {   
-        @include('setupConnection');
+    {  
+        
         $param = $this->app->param('dateSaved');
         $sqlRoundDetails = 'SELECT * from results';
         $executed = $this->app->db()->run($sqlRoundDetails);
@@ -72,11 +73,18 @@ class AppController extends Controller
         $executedComputerWinCount = $this->app->db()->run($sqlComputerWinCount);
         $computerWinCounts = $executedComputerWinCount->fetchAll();
 
+        #number of rounds that Computer won
+        $sqlTieCount = 'SELECT COUNT(winner) from results where winner="tie"';
+        $executedTieCount = $this->app->db()->run($sqlTieCount);
+        $tieCounts = $executedTieCount->fetchAll();
+
+
         return $this->app->view('roundHistory', [
             'rounds' => $rounds,
             'roundCounts' => $roundCounts,
             'playerWinCounts' => $playerWinCounts,
-            'computerWinCounts' => $computerWinCounts
+            'computerWinCounts' => $computerWinCounts,
+            'tieCounts' => $tieCounts
         ]);
 
     }
@@ -99,7 +107,6 @@ class AppController extends Controller
         $options = ["rock", "paper", "scissors"];
         $computerChoice = $options[array_rand($options, 1)];
         $playerChoice = $this->app->input('playerChoice');
-
         if (empty($playerChoice)) {
             $playerChoice = "playerErr";
         } else {
@@ -112,7 +119,7 @@ class AppController extends Controller
             } elseif ($computerChoice == "scissors") {
                 $winner = $playerChoice == "paper" ? 'computer' : 'player';
             }
-            
+
             $dateSaved = date('Y-m-d h:i:s');
             $this->app->db()->insert('results', [
                 'playerChoice' => $playerChoice,
@@ -120,8 +127,6 @@ class AppController extends Controller
                 'winner' => $winner,
                 'dateSaved' => $dateSaved,
             ]);
-
-
         }
         return $this->app->redirect('/', [
             'playerChoice' => $playerChoice,

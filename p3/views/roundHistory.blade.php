@@ -18,6 +18,10 @@
         @foreach ($computerWinCounts as $computerWinCount)
             <p><i class="fas fa-tv"></i>  Computer won <b><span class='count'>{{$computerWinCount['COUNT(winner)']}}</span></b> times.</p>
         @endforeach
+
+        @foreach ($tieCounts as $tieCount)
+            <p><i class="fas fa-tv"></i>  Ties: <b><span class='count'>{{$tieCount['COUNT(winner)']}}</span></b> times.</p>
+        @endforeach
     <hr>
         @foreach ($rounds as $round) 
             <p>Round {{$round['id']}} - <a test = "round-count" class="round-link" href='/round?dateSaved={{$round['dateSaved']}}'>{{$round['dateSaved']}}</a></p>

@@ -11,5 +11,5 @@ return [
     '/optionResults' => ['AppController', 'optionResults'],
     '/roundHistory' => ['AppController', 'roundHistory'], #show listing of all past rounds
     '/round' => ['AppController', 'show'], #show details for an individual round
-    '/setupConnection' =>['AppController', 'show']
+    '/setupConnection' =>['AppController', 'show'],
 ];
