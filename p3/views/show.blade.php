@@ -7,7 +7,7 @@
         <img id='logo' src='/images/game_logo.png' alt="game-logo" class="logo">
         <h2 class="name">ROSHAMBO</h2>
         <a class="link" href="/">Return to the Home page</a>
-        <a class="link" href="/roundHistory">Game History</a> 
+        <a class="link" href="/roundHistory">View Game History</a> 
         <h2>Round details</h2>
         @foreach ($roundDetails as $roundDetail) 
             @if($roundDetail['dateSaved'] == $param)

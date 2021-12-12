@@ -19,8 +19,7 @@ class AppCommand extends Command
     }
     public function seed() {
         $faker = Factory::create();
-        
-        for($i=5; $i>0; $i--) {
+        for($i=10; $i>0; $i--) {
             $playerChoice = ['rock','paper', 'scissors'][rand(0, 2)];
             $computerChoice = ['rock','paper', 'scissors'][rand(0, 2)];
             if ($playerChoice == $computerChoice) {
@@ -36,7 +35,7 @@ class AppCommand extends Command
                 'playerChoice' => $playerChoice,
                 'computerChoice' => $computerChoice,
                 'winner' => $winner,
-                'dateSaved' => $faker -> dateTimeBetween('-'.$i.' days', 'now')->format('Y-m-d H:i:s')
+                'dateSaved' => $faker->dateTimeBetween('-'.$i.' days', '-'.$i.' days')->format('Y-m-d H:i:s') 
             ]);
         }
     }

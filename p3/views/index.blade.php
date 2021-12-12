@@ -17,7 +17,7 @@
             </div>
         </form>
         @endif
-        <a class="link" href="/roundHistory">Game History</a> 
+        <a class="link" href="/roundHistory">View Game History</a> 
         {{--Display errors--}}
         @if ($app -> errorsExist())
             <ul test="validation-output" class='error alert'>
