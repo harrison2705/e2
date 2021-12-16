@@ -3,12 +3,11 @@ class GamePageCest
 {   
     public function pageLoads(AcceptanceTester $I)
     {
-        $I->amOnPage('/round?dateSaved=2021-12-11%2007:08:22');
-        $I->see('2021-12-11 07:08:22');
-        $I->see('Player Choice');
-        $I->see('Paper', '.player-choice');
-        $I->see('Scissors', '.computer-choice');
-        $I->see('Computer', '.winner');
+        $I->amOnPage('/');
+        $I->see('Can you please tell us your name?');
+        $I->seeElement('[test=instruction]');
+        $I->seeElement('[test=logo]');
+        $I->see('Game rules');
     }
     public function testNameInput(AcceptanceTester $I)
     {

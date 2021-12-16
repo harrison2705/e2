@@ -4,8 +4,8 @@
     <!--Introduction Section-->
     @include('intro')
     <!-- Game Section-->
-    <section class="gameSection"> 
-        <a href="/" class="link-logo"><img id='logo' src='/images/game_logo.png' alt="game-logo" class="logo"></a>
+    <section test='instruction' class="gameSection"> 
+        <a href="/" class="link-logo"><img test='logo' id='logo' src='/images/game_logo.png' alt="game-logo" class="logo"></a>
         <h2 class="name">ROSHAMBO</h2>
         {{--Form to input user's name--}}
         @if(!$havePlayerInfo)

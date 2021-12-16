@@ -37,11 +37,9 @@ class AppController extends Controller
     public function intro()
     {
         return $this->app->view('intro');
-    }
-   
+    } 
     public function show()
     {  
-        
         $param = $this->app->param('dateSaved');
         $sqlRoundDetails = 'SELECT * from results';
         $executed = $this->app->db()->run($sqlRoundDetails);
@@ -54,10 +52,11 @@ class AppController extends Controller
     }
     public function roundHistory()
     {   
+        #date information
         $sqldateSaved = 'SELECT id, dateSaved from results';
         $executed = $this->app->db()->run($sqldateSaved);
         $rounds = $executed -> fetchAll();
-        
+
         #number of rounds
         $sqlRoundCount = 'SELECT COUNT(id) from results';
         $executedRoundCount = $this->app->db()->run($sqlRoundCount);
@@ -78,7 +77,6 @@ class AppController extends Controller
         $executedTieCount = $this->app->db()->run($sqlTieCount);
         $tieCounts = $executedTieCount->fetchAll();
 
-
         return $this->app->view('roundHistory', [
             'rounds' => $rounds,
             'roundCounts' => $roundCounts,
@@ -86,7 +84,6 @@ class AppController extends Controller
             'computerWinCounts' => $computerWinCounts,
             'tieCounts' => $tieCounts
         ]);
-
     }
     public function userName()
     {   
@@ -119,7 +116,6 @@ class AppController extends Controller
             } elseif ($computerChoice == "scissors") {
                 $winner = $playerChoice == "paper" ? 'computer' : 'player';
             }
-
             $dateSaved = date('Y-m-d h:i:s');
             $this->app->db()->insert('results', [
                 'playerChoice' => $playerChoice,

@@ -8,7 +8,7 @@
     # DSN (Data Source Name) string
     # contains the information required to connect to the database
     $dsn = "mysql:host=$host;dbname=$database;charset=utf8mb4";
-# Driver-specific connection options
+    # Driver-specific connection options
     $options = [
     \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
     \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,

@@ -23,17 +23,16 @@ Thank you very much for an excellent course!
 Codeception PHP Testing Framework v4.1.22
 Powered by PHPUnit 9.5.10 by Sebastian Bergmann and contributors.
 
-Acceptance Tests (5) ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Acceptance Tests (5) ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 GamePageCest: Page loads
 Signature: GamePageCest:pageLoads
 Test: tests/acceptance/GamePageCest.php:pageLoads
 Scenario --
- I am on page "/round?dateSaved=2021-12-11%2007:08:22"
- I see "2021-12-11 07:08:22"
- I see "Player Choice"
- I see "Paper",".player-choice"
- I see "Scissors",".computer-choice"
- I see "Computer",".winner"
+ I am on page "/"
+ I see "Can you please tell us your name?"
+ I see element "[test=instruction]"
+ I see element "[test=logo]"
+ I see "Game rules"
  PASSED 
 
 GamePageCest: Test name input
@@ -69,8 +68,8 @@ Scenario --
  I grab text from "[test=player-outcome]"
  You chosescissors
  I grab text from "[test=computer-outcome]"
- Computer chosesrock
- I see element "[test=computer-wins]"
+ Computer chosespaper
+ I see element "[test=player-wins]"
  PASSED 
 
 GamePageCest: Round history check
@@ -82,16 +81,15 @@ Scenario --
  I see "Round 1 - "
  I see element "[test=return]"
  I grab multiple "[test=round-count]"
- I assert greater than or equal 5,36
+ I assert greater than or equal 5,16
  I grab text from "[test=round-count]"
- I click "2021-12-07 10:19:38"
- I see "2021-12-07 10:19:38"
+ I click "2021-12-02 03:18:32"
+ I see "2021-12-02 03:18:32"
  PASSED 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-Time: 00:00.256, Memory: 12.00 MB
-
-OK (5 tests, 15 assertions)
+Time: 00:00.264, Memory: 12.00 MB
+OK (5 tests, 14 assertions)
 ```
